@@ -1,0 +1,37 @@
+
+Database Table Structures table names (students, idcards, phones, teachers, student_teacher(pivot table))
+                                                                                                                 (pivot table for many to many)
+students             idCards                                phones                             teachers           student_teacher
+id name date         id student_id cardNumber date         id student_id phoneNumber date      id name date       id studnet_id teacher_id date
+
+Definations
+one student has one id card             - one id card belongs to one student        (one to one)
+one student has many phone numbers      - one phone number belongs to one student   (one to many)
+one student has many teachers           - one teacher has many students             (many to many)
+
+Models in Laravel 
+// Model Student                                                Model IDCARD
+Class Student extends Model                                     Class IDCARD extends Model
+{                                                               {
+    public function idCard()                                        public function student()
+    {                                                               {
+        return this->hasOne(IDCARD::class);                             return this->belongsTo(Student::class);
+    }                                                               }
+                                                                }
+    public function phones()
+    {                                                           // Model Phone
+        return $this->hasMany(Phones::class)                    Class Phone extends Model
+    }                                                           {
+                                                                    public function students()
+    public function teachers()                                      {
+    {                                                                   return this->belongsTo(Student::class);
+        return $this->belongsToMany(Teachers::class);               }
+    }                                                           }
+                                                                // Model Teachers 
+}                                                               Class Teachers extends Model
+                                                                {
+                                                                    public function students()
+                                                                    {
+                                                                        return this->belongsToMany(Student::class);
+                                                                    }
+                                                                }
