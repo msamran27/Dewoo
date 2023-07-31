@@ -9,14 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    
-   
+
+
 <title> CUSTMER</title>
 </head>
 
 <body class="container">
       <h2>CUSTMER</h2>
-   
+
       {{-- <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bg-danger">1</div>
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bg-primary">2</div>
@@ -39,13 +39,13 @@
             </div>
           </div>
         </div>
-      
+
         <!-- Text input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="CNIC">CNIC</label>
           <input type="text" name="CNIC" class="form-control" id='CNIC' placeholder="enter the CNIC" />
         </div>
-      
+
         <!-- Text input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="phone">phone</label>
@@ -63,8 +63,8 @@
             <label class="form-label" for="email">email</label>
           <input type="email" name="email" class="form-control" id='email' placeholder="enter the Email" />
         </div>
-      
-       
+
+
         <!-- Submit button -->
         <button class="btn btn-primary btn-block mb-4" onclick="message()">Submit</button>
       </form>
@@ -72,14 +72,14 @@
       <script>
         function message(){
           let form_data = new FormData();
-            
+
               let name = $('#name').val();
               if (name == ''){
                 $('#name').addClass('is-invalid');
                 $('#name').next('.error').remove();
                 $('#name').after('<small class="text-danger error">Field is Required</small>');
                 $('#name').focus();
-                return; 
+                return;
               }else
               {
                 $('#name').next().remove();
@@ -92,38 +92,38 @@
                 $('#Father_name').next('.error').remove();
                 $('#Father_name').after('<small class="text-danger error">Field is Required</small>');
                 $('#Father_name').focus();
-                return; 
+                return;
               }else{
                 $('#Father_name').next().remove();
                 form_data.append('Father_name', Father_name);
               }
-              
+
               let cnic = $('#CNIC').val();
               if(cnic==''){
                 $('#CNIC').addClass('is-invalid');
                 $('#CNIC').next('.error').remove();
                 $('#CNIC').after('<small class="text-danger error">Field is Required</small>');
                 $('#CNIC').focus();
-                return; 
+                return;
               }else
               {
                 $('#CNIC').next().remove();
                 form_data.append('CNIC', cnic);
               }
-              
+
               let phone = $('#phone').val();
               if(phone==''){
                 $('#phone').addClass('is-invalid');
                 $('#phone').next('.error').remove();
                 $('#phone').after('<small class="text-danger error">Field is Required</small>');
                 $('#phone').focus();
-                return; 
+                return;
               }else
               {
                 $('#phone').next().remove();
                 form_data.append('phone', phone);
               }
-            
+
 
               let address = $('#address').val();
               if(address==''){
@@ -131,26 +131,26 @@
                 $('#address').next('.error').remove();
                 $('#address').after('<small class="text-danger error">Field is Required</small>');
                 $('#address').focus();
-                return; 
+                return;
               }else
               {
                 $('#address').next().remove();
                 form_data.append('address', address);
               }
-             
+
               let email = $('#email').val();
               if(email==''){
                 $('#email').addClass('is-invalid');
                 $('#email').next('.error').remove();
                 $('#email').after('<small class="text-danger error">Field is Required</small>');
                 $('#email').focus();
-                return; 
+                return;
               }else
               {
                 $('#email').next().remove();
                 form_data.append('email', email);
               }
-              
+
             $.ajax({
                 type: "get",
                 url: "{{ url("submit") }}",
@@ -170,8 +170,8 @@
         }
     </script>
 
-    
-      
+
+
 </body>
 </html>
 

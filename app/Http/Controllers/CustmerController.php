@@ -16,7 +16,7 @@ class CustmerController extends Controller
      */
     public function index()
     {
-    
+
     }
 
     /**
@@ -26,19 +26,19 @@ class CustmerController extends Controller
      */
     public function create(Request $request)
     {
-        
+
         $request->validate([
-            'name'=>['required','min:3','max:25','string'],
-            'Father_name'=>['required','min:3','max:25','string'],
-            'CNIC'=>['required','min:3','max:25'],
-            'phone'=>['required','min:3','max:25',],
-            'address'=>['required','min:3','max:25'],
-            'email'=>['required','min:3','max:25'],
+            'name'=>'required',
+            'Father_name'=>'required',
+            'CNIC'=>'required',
+            'phone'=>'required',
+            'address'=>'required',
+            'email'=>'required',
 
          ]);
- 
+
         Custmer::create($request->all());
-        
+
        // return redirect('WelcomeCustmer')->with('message','the rocrd submit successfully');
         return redirect('/ticket')->with('message','the rocrd submit successfully');
     }
@@ -62,7 +62,7 @@ class CustmerController extends Controller
      */
     public function show(Custmer $custmer)
     {
-    
+
     }
 
     /**
@@ -73,7 +73,7 @@ class CustmerController extends Controller
      */
     public function edit($id)
     {
-        
+
         return view('custmer\update')->with('id',$id);
     }
 
@@ -86,7 +86,7 @@ class CustmerController extends Controller
      */
     public function update(Request $request, Custmer $custmer)
     {
-      
+
         $custmer->update($request->all());
         return redirect('WelcomeCustmer')->with('message','data update succcessfully');
     }
@@ -99,9 +99,9 @@ class CustmerController extends Controller
      */
     public function destroy(Custmer $custmer)
     {
-        
+
         $custmer->delete();
-        
+
         return redirect('WelcomeCustmer')->with('message','the data delete successfully');
     }
 }

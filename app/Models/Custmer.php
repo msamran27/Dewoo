@@ -19,13 +19,12 @@ class Custmer extends Model
         'phone',
         'address',
         'email',
-        'deleted_at',
     ];
     public function custmer()
     {
         return $this->hasOne(Ticket::class);
     }
-    
+
     public function servicecomplant()
     {
         return $this->hasMany(servicecomplant::class);

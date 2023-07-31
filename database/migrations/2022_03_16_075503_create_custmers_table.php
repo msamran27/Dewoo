@@ -17,11 +17,10 @@ class CreateCustmersTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('Father_name');
-            $table->integer('CNIC');
-            $table->integer('phone');
+            $table->string('CNIC');
+            $table->string('phone');
             $table->string('address');
-            $table->string('email')->nullable()->unique();;
-            $table->softDeletes();
+            $table->string('email')->unique();;
             $table->timestamps();
         });
     }

@@ -11,8 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body class="antialiased container p-1" ondblclick="">
-    
-  
+
+
     <form action="submit"method='POST'>
         @csrf
         <input type = "text" name ='name' id ="name" placeholder ='enter the name'><br>
@@ -24,11 +24,11 @@
             <label for="my-select">Province</label><br>
             <select class="province" class="form-control province" name="province">
                 @foreach (\App\Models\Province::get() as $Province)
-                    <option value="{{ $Province->name }}"> {{ $Province->name }} </option> 
+                    <option value="{{ $Province->name }}"> {{ $Province->name }} </option>
                 @endforeach
-              
+
             </select>
-        
+
         </div>
 
         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
@@ -39,13 +39,13 @@
         <label for="vehicle3"> I have a boat</label>
 
 
-        
-        
+
+
         {{-- <div class="form-group">
             <label for="my-select">City</label>
             <select id="tests" class="form-control tests" name="tests">
                 @foreach (\App\Models\city::get() as $city)
-                    <option value="{{ $city->id }}"> {{ $city->name }} </option>                    
+                    <option value="{{ $city->id }}"> {{ $city->name }} </option>
                 @endforeach
             </select>
         </div> --}}
@@ -96,13 +96,12 @@
     function message(){
         let form_data = new FormData();
 
-        
         let name = $('#name').val();
         form_data.append('name', name);
 
         let email = $('#email').val();
         form_data.append('email', email);
-        
+
         let password = $('#password').val();
         form_data.append('password', password);
 
@@ -122,7 +121,7 @@
         form_data.append('vehicle3', vehicle3);
 
         let light = $('input[name="light"]:checked').val();
-        
+
         form_data.append('light', light);
 
         let day = $('input[name="day"]:checked').val();
